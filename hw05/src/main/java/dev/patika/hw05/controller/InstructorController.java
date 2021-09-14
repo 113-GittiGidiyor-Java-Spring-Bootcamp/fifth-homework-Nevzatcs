@@ -2,6 +2,7 @@ package dev.patika.hw05.controller;
 
 
 import dev.patika.hw05.model.Instructor;
+import dev.patika.hw05.model.PermanentInstructor;
 import dev.patika.hw05.service.InstructorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -54,6 +55,9 @@ public class InstructorController {
     public List<Instructor> getInstructorsWithId(@PathVariable int id){
         return instructorService.getInstructorsWithId(id);
     }
-
+    @PostMapping("instructors/updateSalary/{id}")
+    public  List<PermanentInstructor> updateSalary(@PathVariable int id){
+        return instructorService.updateSalary(id);
+    }
 
 }

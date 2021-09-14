@@ -1,6 +1,7 @@
 package dev.patika.hw05.service;
 
 import dev.patika.hw05.model.Instructor;
+import dev.patika.hw05.model.PermanentInstructor;
 import dev.patika.hw05.repository.InstructorRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -63,5 +64,9 @@ public class InstructorService implements BaseService<Instructor> {
     @Transactional
     public List<Instructor> getInstructorsWithId(int id) {
         return instructorRepository.findInstructorById(id);
+    }
+
+    public List<PermanentInstructor> updateSalary(int id) {
+        return instructorRepository.getPermanentInstructorBySalary(id);
     }
 }

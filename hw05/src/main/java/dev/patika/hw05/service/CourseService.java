@@ -32,13 +32,14 @@ public class CourseService implements BaseService<Course>{
     }
 
     @Override
-    public Course save(Course object) {
-        return null;
+    public Course save(Course course) {
+        return courseRepository.save(course);
     }
 
 
     @Transactional
-    public Optional<Course> save(CourseDTO courseDTO) {
+
+    public Optional<Course> saveCourse(CourseDTO courseDTO) {
         boolean isExists = courseRepository.selectExistsCourse(courseDTO.getId());
         if(isExists){
             throw new CourseIsAlreadyExistsException("Course with Id : " + courseDTO.getId() + " is already exists!");
